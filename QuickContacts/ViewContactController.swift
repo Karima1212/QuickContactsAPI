@@ -10,7 +10,7 @@ import UIKit
 
 class ViewContactController: UIViewController {
     
-    var contactId: Int!
+    var contactId: String!
     
     var contact: Contact?
 

@@ -42,7 +42,7 @@ class ContactFormController: UIViewController {
         contact.company = companyField.text
         contact.email = emailField.text
         
-        ContactApi.api.saveContact(contact) {
+        ContactApi.api.saveContact(contact) {_ in 
             let controller = self.navigationController!.viewControllers[0] as! ContactsTableController
             
             controller.loadContacts()

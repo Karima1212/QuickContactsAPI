@@ -23,9 +23,17 @@ class ContactsTableController: UITableViewController {
     }
     
     func loadContacts() {
-        ContactApi.api.getContacts() { loadedContacts in
-            self.contacts = loadedContacts
-            self.tableView.reloadData()
+        ContactApi.api.getContacts() { loadedContacts, err in
+            if (err != nil) {
+                let alertController = UIAlertController(title: "Network Error", message: "Cannot load contacts", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            } else {
+                self.contacts = loadedContacts
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -73,10 +81,10 @@ class ContactsTableController: UITableViewController {
         if segue.identifier == "detailSegue" {
             let destination = segue.destination as! ViewContactController
             let row = self.tableView.indexPathForSelectedRow?.row
-            destination.contactId = self.contacts[row!].id
+            destination.contactId = self.contacts[row!].id!
         } else if segue.identifier == "addSegue" {
             let destination = segue.destination as! ContactFormController
-            destination.contact = Contact(id: 0, name: "", company: "", email: "")
+            destination.contact = Contact(id: nil, name: "", company: "", email: "")
             
         }
     }

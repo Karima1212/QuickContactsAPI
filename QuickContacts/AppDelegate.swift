@@ -8,15 +8,35 @@
 
 import UIKit
 import CoreData
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    #if DEBUG
+    let applicationId = "myAppId"
+    let clientKey = ""
+    let parseServer = "http://localhost:1337/parse"
+    #else
+    let applicationId = "quickContacts"
+    let clientKey = ""
+    let parseServer = "https://mobile-app-parse.herokuapp.com/parse"
+    #endif
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = self.applicationId
+            $0.clientKey = self.clientKey
+            $0.server = self.parseServer
+        }
+        Parse.initialize(with: configuration)
+        
+        
         return true
     }
 

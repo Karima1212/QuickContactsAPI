@@ -23,6 +23,7 @@
 		66C1545D1E3F784C008B61EC /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1545C1E3F784C008B61EC /* ContactTableViewCell.swift */; };
 		66C1545F1E3F79B7008B61EC /* ViewContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1545E1E3F79B7008B61EC /* ViewContactController.swift */; };
 		66C154611E3FF5F8008B61EC /* ContactFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C154601E3FF5F8008B61EC /* ContactFormController.swift */; };
+		899DA8F94B0AC0FF6FF17BFA /* Pods_QuickContacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A39C540B1B49D8AD14F7A0 /* Pods_QuickContacts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24A39C540B1B49D8AD14F7A0 /* Pods_QuickContacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickContacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66C1541E1E3F73FA008B61EC /* QuickContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66C154211E3F73FA008B61EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66C154231E3F73FA008B61EC /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,8 @@
 		66C1545C1E3F784C008B61EC /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		66C1545E1E3F79B7008B61EC /* ViewContactController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContactController.swift; sourceTree = "<group>"; };
 		66C154601E3FF5F8008B61EC /* ContactFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormController.swift; sourceTree = "<group>"; };
+		6D363E7E090F5CF0D46ACE42 /* Pods-QuickContacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickContacts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickContacts/Pods-QuickContacts.debug.xcconfig"; sourceTree = "<group>"; };
+		9EFCF945E5C4819040413DBE /* Pods-QuickContacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickContacts.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickContacts/Pods-QuickContacts.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				899DA8F94B0AC0FF6FF17BFA /* Pods_QuickContacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		494DACE41F6375BC730C6AB6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D363E7E090F5CF0D46ACE42 /* Pods-QuickContacts.debug.xcconfig */,
+				9EFCF945E5C4819040413DBE /* Pods-QuickContacts.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		66C154151E3F73FA008B61EC = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +113,8 @@
 				66C154381E3F73FA008B61EC /* QuickContactsTests */,
 				66C154431E3F73FA008B61EC /* QuickContactsUITests */,
 				66C1541F1E3F73FA008B61EC /* Products */,
+				494DACE41F6375BC730C6AB6 /* Pods */,
+				CF37E4422F0E6A831D6CE4E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +168,14 @@
 			path = QuickContactsUITests;
 			sourceTree = "<group>";
 		};
+		CF37E4422F0E6A831D6CE4E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24A39C540B1B49D8AD14F7A0 /* Pods_QuickContacts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66C154491E3F73FA008B61EC /* Build configuration list for PBXNativeTarget "QuickContacts" */;
 			buildPhases = (
+				0479B59207EFEBD8B12F446B /* [CP] Check Pods Manifest.lock */,
 				66C1541A1E3F73FA008B61EC /* Sources */,
 				66C1541B1E3F73FA008B61EC /* Frameworks */,
 				66C1541C1E3F73FA008B61EC /* Resources */,
+				48195F495BC4D527865074A9 /* [CP] Embed Pods Frameworks */,
+				54EC57D49431CFC0C310A332 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,6 +307,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0479B59207EFEBD8B12F446B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		48195F495BC4D527865074A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuickContacts/Pods-QuickContacts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54EC57D49431CFC0C310A332 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuickContacts/Pods-QuickContacts-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66C1541A1E3F73FA008B61EC /* Sources */ = {
@@ -444,10 +519,12 @@
 		};
 		66C1544A1E3F73FA008B61EC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D363E7E090F5CF0D46ACE42 /* Pods-QuickContacts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = QuickContacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cykod.QuickContacts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -456,6 +533,7 @@
 		};
 		66C1544B1E3F73FA008B61EC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EFCF945E5C4819040413DBE /* Pods-QuickContacts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = QuickContacts/Info.plist;
@@ -539,6 +617,7 @@
 				66C1544B1E3F73FA008B61EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66C1544C1E3F73FA008B61EC /* Build configuration list for PBXNativeTarget "QuickContactsTests" */ = {
 			isa = XCConfigurationList;
@@ -547,6 +626,7 @@
 				66C1544E1E3F73FA008B61EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66C1544F1E3F73FA008B61EC /* Build configuration list for PBXNativeTarget "QuickContactsUITests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +635,7 @@
 				66C154511E3F73FA008B61EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

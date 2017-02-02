@@ -7,40 +7,59 @@
 //
 
 import Foundation
-
+import Parse
 
 class ContactApi {
     
     static let api = ContactApi()
     
-    var contacts = [
-        Contact(id: 1, name: "Svend Karlson", company: "Company Co",
-                email: "svend@test.com"),
-        Contact(id: 2, name: "Bob Smith", company: "Company Co",
-                email: "bob@test.com")
-    ]
-    
-    func getContacts(callback:@escaping ([Contact]) -> Void) {
-        callback(contacts)
-    }
-    
-    func getContact(_ id:Int, callback:@escaping (Contact?) -> Void) {
-        if let contact = contacts.filter({ $0.id == id }).first {
-            callback(contact)
-        } else {
-            callback(nil)
+    func getContacts(callback:@escaping ([Contact],String?) -> Void) {
+        let query = PFQuery(className:"Contacts")
+        query.order(byAscending: "name")
+        query.findObjectsInBackground() {
+            objects, error in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                
+                var contacts:[Contact] = []
+                
+                if let objects = objects {
+                    for object in objects {
+                        contacts.append(Contact.fromPFObject(object))
+                    }
+                    callback(contacts, nil)
+                } else {
+                    callback([], "Error")
+                }
+            } else {
+                callback([], "Error" )
+                // Log details of the failure
+                print("Error: \(error!) \(error!.localizedDescription)")
+            }
         }
     }
     
-    func saveContact(_ contact:Contact, callback:@escaping () -> Void) {
-        var contact = contact
-        if let index = contacts.index(where: { $0.id == contact.id }) {
-            contacts[index] = contact
-        } else {
-            contact.id = (contacts.map({ $0.id }).max() ?? 0) + 1
-            contacts.append(contact)
+    func getContact(_ id:String, callback:@escaping (Contact?) -> Void) {
+        let query = PFQuery(className:"Contacts")
+        query.getObjectInBackground(withId: id) { (object, err) in
+            if let object = object {
+                callback(Contact.fromPFObject(object))
+            } else {
+                callback(nil)
+            }
+            
         }
-        callback()
+    }
+    
+    func saveContact(_ contact:Contact, callback:@escaping (String?) -> Void) {
+        let parseObject = contact.toPFObject()
+        
+        parseObject.saveInBackground()  { (ok, error) in
+            callback(ok ? nil : error?.localizedDescription)
+        }
     }
     
 }
