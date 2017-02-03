@@ -20,15 +20,11 @@ class ContactApi {
             objects, error in
             
             if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
-                // Do something with the found objects
-                
                 var contacts:[Contact] = []
                 
                 if let objects = objects {
                     for object in objects {
-                        contacts.append(Contact.fromPFObject(object))
+                        contacts.append(Contact(object))
                     }
                     callback(contacts, nil)
                 } else {
@@ -46,7 +42,7 @@ class ContactApi {
         let query = PFQuery(className:"Contacts")
         query.getObjectInBackground(withId: id) { (object, err) in
             if let object = object {
-                callback(Contact.fromPFObject(object))
+                callback(Contact(object))
             } else {
                 callback(nil)
             }

@@ -15,8 +15,18 @@ struct Contact {
     var company:String!
     var email:String!
     
-    static func fromPFObject(_ obj:PFObject) -> Contact {
-        return Contact(id: obj.objectId,
+    init(id: String?,
+         name: String,
+         company: String,
+         email: String) {
+        self.id = id
+        self.name = name
+        self.company = company
+        self.email = email
+    }
+    
+    init(_ obj:PFObject) {
+        self.init(id: obj.objectId,
                 name: obj["name"] as! String,
                 company: obj["company"] as! String,
                 email: obj["email"] as! String)

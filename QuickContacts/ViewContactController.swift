@@ -25,6 +25,7 @@ class ViewContactController: UIViewController {
 
         loadContact()
         // Do any additional setup after loading the view.
+   
         self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(ViewContactController.editContact)), animated: true)
     }
     
